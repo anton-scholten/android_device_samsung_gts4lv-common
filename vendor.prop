@@ -142,6 +142,9 @@ vendor.opengles.version=196610
 # Keystore
 ro.hardware.keystore=mdfpp
 
+# Media
+debug.stagefright.c2inputsurface=-1
+
 # OEM Unlock reporting
 ro.oem_unlock_supported=1
 
