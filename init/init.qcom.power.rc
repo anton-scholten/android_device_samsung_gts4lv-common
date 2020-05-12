@@ -143,38 +143,6 @@ on enable-low-power
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:1209600"
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
-    # Change DDR, L3, LLC node permission
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu0/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu0/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu0/max_freq
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu6/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu6/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,l3-cpu6/max_freq
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu0/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu0/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu0/max_freq
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu6/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu6/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,memlat-cpu6/max_freq
-    chown root system /sys/class/devfreq/soc:qcom,llccbw/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,llccbw/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,llccbw/max_freq
-    chown root system /sys/class/devfreq/soc:qcom,mincpubw/available_frequencies
-    chown root system /sys/class/devfreq/soc:qcom,mincpubw/min_freq
-    chown root system /sys/class/devfreq/soc:qcom,mincpubw/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,l3-cpu0/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,l3-cpu0/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,l3-cpu6/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,l3-cpu6/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,memlat-cpu0/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,memlat-cpu0/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,memlat-cpu6/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,memlat-cpu6/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,llccbw/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,llccbw/max_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,mincpubw/min_freq
-    chmod 664 /sys/class/devfreq/soc:qcom,mincpubw/max_freq
-
     # Change schedutil governor node permission
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load
@@ -202,30 +170,6 @@ on enable-low-power
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/up_scale 250
     write /sys/class/devfreq/soc:qcom,cpubw/bw_hwmon/idle_mbps 1600
 
-    # Enable mem_latency governor for DDR scaling
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu0/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,memlat-cpu6/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,memlat-cpu6/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,memlat-cpu6/mem_latency/ratio_ceil 400
-
-    # Enable mem_latency governor for L3 scaling
-    write /sys/class/devfreq/soc:qcom,l3-cpu0/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,l3-cpu0/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,l3-cpu0/mem_latency/ratio_ceil 400
-
-    write /sys/class/devfreq/soc:qcom,l3-cpu6/governor "mem_latency"
-    write /sys/class/devfreq/soc:qcom,l3-cpu6/polling_interval 10
-    write /sys/class/devfreq/soc:qcom,l3-cpu6/mem_latency/ratio_ceil 400
-
-    # Enable userspace governor for L3 cdsp nodes
-    write /sys/class/devfreq/soc:qcom,l3-cdsp/governor "userspace"
-    chown system /sys/class/devfreq/soc:qcom,l3-cdsp/userspace/set_freq
-
-    write /sys/class/devfreq/soc:qcom,mincpubw/governor "cpufreq"
-
     # Disable CPU retention
     write /sys/module/lpm_levels/L3/cpu0/ret/idle_enabled "N"
     write /sys/module/lpm_levels/L3/cpu1/ret/idle_enabled "N"
@@ -249,6 +193,8 @@ on enable-low-power
     # Post-setup services
     setprop vendor.post_boot.parsed 1
 
+    start dcvs-sh
+
 on property:sys.boot_completed=1
     trigger enable-low-power
 
@@ -258,5 +204,12 @@ on property:init.svc.recovery=running
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
+    disabled
+    oneshot
+
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
     disabled
     oneshot

@@ -112,6 +112,7 @@ PRODUCT_PACKAGES += \
     init.qcom.recovery.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
+    init.qti.dcvs.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.samsung.rc \
