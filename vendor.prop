@@ -142,6 +142,9 @@ ro.surface_flinger.set_idle_timer_ms=4000
 ro.surface_flinger.set_touch_timer_ms=4000
 vendor.opengles.version=196610
 
+# Incremental FS
+ro.incremental.enable=true
+
 # Keystore
 ro.hardware.keystore=mdfpp
 
