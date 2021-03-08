@@ -113,6 +113,9 @@ ro.fastbootd.available=true
 ro.vendor.fingerprint.type=side
 ro.vendor.fingerprint.sensor_location=1636|325|130|local:4630947232161729153
 
+# FUSE passthrough
+persist.sys.fuse.passthrough.enable=true
+
 # Gatekeeper
 ro.hardware.gatekeeper=mdfpp
 
