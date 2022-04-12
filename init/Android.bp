@@ -32,13 +32,6 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "init.qcom.usb.rc",
-    src: "init.qcom.usb.rc",
-    sub_dir: "init/hw",
-    soc_specific: true,
-}
-
-prebuilt_etc {
     name: "init.samsung.bsp.rc",
     src: "init.samsung.bsp.rc",
     sub_dir: "init/hw",
@@ -101,11 +94,5 @@ sh_binary {
 sh_binary {
     name: "init.qcom.sh",
     src: "init.qcom.sh",
-    soc_specific: true,
-}
-
-sh_binary {
-    name: "init.qcom.usb.sh",
-    src: "init.qcom.usb.sh",
     soc_specific: true,
 }
