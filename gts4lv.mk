@@ -149,6 +149,11 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     android.hardware.gatekeeper@1.0-service
 
+# GMS
+ifeq ($(WITH_GMS),true)
+GMS_MAKEFILE=gms_minimal.mk
+endif
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.samsung \
