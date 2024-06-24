@@ -274,7 +274,9 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service.qti
+    android.hardware.usb-service.qti \
+    android.hardware.usb.gadget-service.qti \
+    usb_compositions.conf
 
 # WiFi
 PRODUCT_COPY_FILES += \
