@@ -157,9 +157,10 @@ persist.vendor.qcomsysd.enabled=1
 sys.vendor.shutdown.waittime=500
 
 # USB
+sys.usb.mtp.batchcancel=1
 vendor.usb.controller=a600000.dwc3
 vendor.usb.diag.func.name=diag
-vendor.usb.use_ffs_mtp=0
+vendor.usb.use_ffs_mtp=1
 
 # WiFi Display
 persist.debug.wfd.enable=1
