@@ -400,7 +400,6 @@ vendor/lib64/libmeters.so
 vendor/lib64/libreffeature.so
 
 # OMX
-vendor/lib/libOmxVpp.so
 vendor/lib/libmmosal.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
 
