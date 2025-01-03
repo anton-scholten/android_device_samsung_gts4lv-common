@@ -260,6 +260,9 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/samsung \
     vendor/qcom/opensource/usb/etc
 
+# Storage
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
