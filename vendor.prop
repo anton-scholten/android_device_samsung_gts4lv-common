@@ -175,6 +175,9 @@ vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=1
 vendor.usb.use_gadget_hal=1
 
+# WiFi
+wifi.aware.interface=wifi-aware0
+
 # WiFi Display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
