@@ -19,7 +19,7 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/samsung/gts4lv-common',
-    'hardware/qcom-caf/sdm845',
+    'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'hardware/samsung',
     'vendor/qcom/opensource/commonsys/display',
