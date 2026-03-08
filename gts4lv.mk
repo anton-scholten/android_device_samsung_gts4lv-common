@@ -36,10 +36,15 @@ TARGET_SCREEN_WIDTH := 1600
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
+
+PRODUCT_PACKAGES += \
+    FrameworksResCommon \
+    SettingsResCommon \
+    SystemUIResCommon \
+    WifiResCommon
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -283,7 +288,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
-    WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 
