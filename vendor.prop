@@ -110,9 +110,6 @@ vendor.display.smomo_game_support=0
 vendor.display.use_layer_ext=1
 vendor.display.use_smooth_motion=1
 
-# fastbootd
-ro.fastbootd.available=true
-
 # Fingerprint
 ro.vendor.fingerprint.type=side
 ro.vendor.fingerprint.sensor_location=1636|325|130|local:4630947232161729153
