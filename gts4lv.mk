@@ -176,6 +176,9 @@ $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,0)
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay-service.samsung-qcom
 
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/Vendor_04e8_Product_a035.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Vendor_04e8_Product_a035.kl
