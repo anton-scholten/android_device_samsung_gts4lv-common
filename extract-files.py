@@ -51,6 +51,8 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('<AudioStreamInSuspend>0</AudioStreamInSuspend>', '<AudioStreamInSuspend>1</AudioStreamInSuspend>'),
     ('vendor/lib/mediadrm/libwvdrmengine.so', 'vendor/lib/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
+    'vendor/lib/libqcodec2_utils.so': blob_fixup()
+        .patch_file('blob-patches/libqcodec2_utils.py'),
     'vendor/lib/libsensorlistener.so': blob_fixup()
         .add_needed('libshim_sensorndkbridge.so'),
     'vendor/lib64/libdpps.so': blob_fixup()
