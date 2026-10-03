@@ -8,3 +8,6 @@ ro.lmk.downgrade_pressure=100
 ro.lmk.kill_heaviest_task=true
 ro.lmk.kill_timeout_ms=100
 ro.lmk.use_minfree_levels=true
+
+# eBPF
+ro.bpf.kver_override=5.15.178
