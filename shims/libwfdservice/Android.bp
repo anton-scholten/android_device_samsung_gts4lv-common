@@ -1,0 +1,19 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libshim_wfdservice",
+    srcs: ["AudioSystem.cpp"],
+    shared_libs: [
+        "android.media.audio.common.types-V4-cpp",
+        "audioclient-types-aidl-cpp",
+        "libaudioclient",
+        "libaudiofoundation",
+        "libutils",
+    ],
+    header_libs: ["libmedia_headers"],
+    compile_multilib: "32",
+    system_ext_specific: true,
+}
