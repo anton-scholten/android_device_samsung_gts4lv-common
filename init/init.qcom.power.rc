@@ -42,49 +42,70 @@ on init
     chmod 0664 /dev/cpuset/audio-app/cpus
     chmod 0664 /dev/cpuset/cpus
 
-    # Top-app
-    chown root system /dev/stune/top-app/schedtune.boost
-    chown root system /dev/stune/top-app/schedtune.colocate
-    chown root system /dev/stune/top-app/schedtune.prefer_idle
-    chown root system /dev/stune/top-app/schedtune.sched_boost_enabled
-    chown root system /dev/stune/top-app/schedtune.sched_boost_no_override
-    chmod 0664 /dev/stune/top-app/schedtune.boost
-    chmod 0664 /dev/stune/top-app/schedtune.colocate
-    chmod 0664 /dev/stune/top-app/schedtune.prefer_idle
-    chmod 0664 /dev/stune/top-app/schedtune.sched_boost_enabled
-    chmod 0664 /dev/stune/top-app/schedtune.sched_boost_no_override
+    # Utilization clamping (replaces schedtune): let the platform task profiles write the clamps
+    chown system system /dev/cpuctl/foreground/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/foreground/cpu.uclamp.min
+    chown system system /dev/cpuctl/foreground/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/foreground/cpu.uclamp.max
+    chown system system /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/foreground_window/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/foreground_window/cpu.uclamp.min
+    chown system system /dev/cpuctl/foreground_window/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/foreground_window/cpu.uclamp.max
+    chown system system /dev/cpuctl/foreground_window/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/foreground_window/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/background/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/background/cpu.uclamp.min
+    chown system system /dev/cpuctl/background/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/background/cpu.uclamp.max
+    chown system system /dev/cpuctl/background/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/background/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/top-app/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.min
+    chown system system /dev/cpuctl/top-app/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.max
+    chown system system /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/rt/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/rt/cpu.uclamp.min
+    chown system system /dev/cpuctl/rt/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/rt/cpu.uclamp.max
+    chown system system /dev/cpuctl/rt/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/rt/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/system/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/system/cpu.uclamp.min
+    chown system system /dev/cpuctl/system/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/system/cpu.uclamp.max
+    chown system system /dev/cpuctl/system/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/system/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/system-background/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/system-background/cpu.uclamp.min
+    chown system system /dev/cpuctl/system-background/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/system-background/cpu.uclamp.max
+    chown system system /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/dex2oat/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/dex2oat/cpu.uclamp.min
+    chown system system /dev/cpuctl/dex2oat/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/dex2oat/cpu.uclamp.max
+    chown system system /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/dex2oat/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/camera-daemon/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/camera-daemon/cpu.uclamp.min
+    chown system system /dev/cpuctl/camera-daemon/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/camera-daemon/cpu.uclamp.max
+    chown system system /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive
+    chown system system /dev/cpuctl/nnapi-hal/cpu.uclamp.min
+    chmod 0664 /dev/cpuctl/nnapi-hal/cpu.uclamp.min
+    chown system system /dev/cpuctl/nnapi-hal/cpu.uclamp.max
+    chmod 0664 /dev/cpuctl/nnapi-hal/cpu.uclamp.max
+    chown system system /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
+    chmod 0664 /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive
 
-    # Foreground
-    chown root system /dev/stune/foreground/schedtune.boost
-    chown root system /dev/stune/foreground/schedtune.colocate
-    chown root system /dev/stune/foreground/schedtune.prefer_idle
-    chown root system /dev/stune/foreground/schedtune.sched_boost_enabled
-    chown root system /dev/stune/foreground/schedtune.sched_boost_no_override
-    chmod 0664 /dev/stune/foreground/schedtune.boost
-    chmod 0664 /dev/stune/foreground/schedtune.colocate
-    chmod 0664 /dev/stune/foreground/schedtune.prefer_idle
-    chmod 0664 /dev/stune/foreground/schedtune.sched_boost_enabled
-    chmod 0664 /dev/stune/foreground/schedtune.sched_boost_no_override
-
-    # Background
-    chown root system /dev/stune/background/schedtune.boost
-    chown root system /dev/stune/background/schedtune.colocate
-    chown root system /dev/stune/background/schedtune.prefer_idle
-    chown root system /dev/stune/background/schedtune.sched_boost_enabled
-    chown root system /dev/stune/background/schedtune.sched_boost_no_override
-    chmod 0664 /dev/stune/background/schedtune.boost
-    chmod 0664 /dev/stune/background/schedtune.colocate
-    chmod 0664 /dev/stune/background/schedtune.prefer_idle
-    chmod 0664 /dev/stune/background/schedtune.sched_boost_enabled
-    chmod 0664 /dev/stune/background/schedtune.sched_boost_no_override
-
-    write /dev/stune/foreground/schedtune.sched_boost_no_override 1
-    write /dev/stune/top-app/schedtune.sched_boost_no_override 1
-    write /dev/stune/schedtune.colocate 0
-    write /dev/stune/background/schedtune.colocate 0
-    write /dev/stune/system-background/schedtune.colocate 0
-    write /dev/stune/foreground/schedtune.colocate 0
-    write /dev/stune/top-app/schedtune.colocate 1
+    # Prefer idle CPUs for top-app work (schedtune.prefer_idle equivalent)
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
 on boot
