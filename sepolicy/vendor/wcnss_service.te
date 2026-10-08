@@ -5,3 +5,5 @@ allow wcnss_service wifi_vendor_wpa_socket:dir r_dir_perms;
 allow wcnss_service wifi_vendor_wpa_socket:sock_file create_file_perms;
 
 r_dir_file(wcnss_service, vendor_convergence_data_file)
+
+allow wcnss_service kmsg_device:chr_file w_file_perms;

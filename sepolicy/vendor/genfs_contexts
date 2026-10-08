@@ -25,3 +25,37 @@ genfscon sysfs /power/cpufreq_max_limit u:object_r:sysfs_power:s0
 genfscon sysfs /power/cpufreq_min_limit u:object_r:sysfs_power:s0
 genfscon sysfs /power/cpufreq_table u:object_r:sysfs_power:s0
 genfscon sysfs /wifi u:object_r:sysfs_wifi:s0
+
+# Wakeup sources attached to devices (kernel wakeup class, backported)
+genfscon sysfs /devices/platform/alarmtimer/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/18800000.qcom,icnss/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/880000.i2c/i2c-7/7-002a/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/898000.qcom,qup_uart/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a600000.ssusb/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/a84000.i2c/i2c-9/9-0049/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm660@0:qcom,pm660_rtc/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-00/c440000.qcom,spmi:qcom,pm660@0:qcom,power-on@800/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/ac/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/battery/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/pogo/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/ps/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/usb/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:battery/power_supply/wireless/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:i2c@24/i2c-3/3-0071/power_supply/sm5705-fuelgauge/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:i2c@26/i2c-5/5-0049/sm5705-charger/power_supply/otg/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:i2c@26/i2c-5/5-0049/sm5705-charger/power_supply/sm5705-charger/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/soc/soc:i2c@28/i2c-6/6-0033/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_aac/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_alac/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrnb/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrwb/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_amrwbplus/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_ape/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_evrc/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_g711alaw/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_g711mlaw/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_mp3/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_multi_aac/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_qcelp/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_wma/wakeup u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup u:object_r:sysfs_wakeup:s0
