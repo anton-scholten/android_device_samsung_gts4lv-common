@@ -196,3 +196,5 @@
 # Wakeup sources (backported kernel wakeup class). ueventd restorecons sysfs paths on
 # every uevent, so this must stay after the power_supply rules above to win over them.
 /sys/devices/.*/wakeup[0-9]+(/.*)?                          u:object_r:sysfs_wakeup:s0
+# fc_sort ranks by stem length, so the battery power_supply rule above beats the generic one: be more specific.
+/sys/devices/platform/soc/soc:battery/power_supply/[^/]+/wakeup[0-9]+(/.*)?  u:object_r:sysfs_wakeup:s0
