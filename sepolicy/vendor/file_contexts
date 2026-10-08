@@ -192,3 +192,7 @@
 /sys/devices/virtual/sec/sec_keypad(/.*)?                       u:object_r:sysfs_sec_keypad:s0
 /sys/devices/virtual/sec/switch(/.*)?                           u:object_r:sysfs_sec_switch:s0
 /sys/devices/virtual/sec/tsp(/.*)?                              u:object_r:sysfs_tsp:s0
+
+# Wakeup sources (backported kernel wakeup class). ueventd restorecons sysfs paths on
+# every uevent, so this must stay after the power_supply rules above to win over them.
+/sys/devices/.*/wakeup[0-9]+(/.*)?                          u:object_r:sysfs_wakeup:s0
