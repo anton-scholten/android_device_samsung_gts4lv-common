@@ -187,6 +187,10 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,samsungVars,target_keymaster4_library,//vendor/samsung/gts4lv-common:libskeymaster4device)
 
 # Media
+# ION: our camera and display blobs are built against the legacy ION allocator,
+# which 24.0's libion no longer offers by default.
+$(call soong_config_set_bool,libion,legacy_impl,true)
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
