@@ -118,6 +118,10 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # Display
+# We ship a first-generation gralloc (gralloc.sdm710) with none of the
+# gralloc2/3/4 interfaces, so libui needs the legacy code path.
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@2.0-impl-qti-display \
