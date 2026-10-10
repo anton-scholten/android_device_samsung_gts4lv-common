@@ -1,0 +1,49 @@
+// libheif, restored for LineageOS 24.
+//
+// Android 17 (lineage-24.0) removed frameworks/av/media/libheif, but our
+// vendor blob libwfdcommonutils.so still lists libheif.so in DT_NEEDED:
+//
+//   llvm-readelf-19 -d proprietary/system_ext/lib/libwfdcommonutils.so
+//   (NEEDED)  Shared library: [libheif.so]
+//
+// So the dependency is real, not stale metadata, and Soong refuses to resolve
+// it. The sources are copied verbatim from the 23.2 tree
+// (frameworks/av/media/libheif @ lineage-23.2) and unmodified.
+//
+// This module lives in the device tree rather than in a fork of
+// android_frameworks_av because that path is inside a project we do not fork:
+// pulling the whole repo back to 23.2 to get 56 KB back would revert the
+// entire media stack. The device tree's soong_namespace is already imported by
+// vendor/samsung/gts4lv-common/Android.bp, so the blob can see this module
+// with no manifest change.
+//
+// The original package{} block is dropped: it selected frameworks_av_license,
+// which is declared by android_frameworks_av and not defined here. The sources
+// carry their own Apache-2.0 headers.
+//
+// The include paths the source needs (drm/drm_framework_common.h,
+// private/media/VideoFrame.h, media/stagefright/...) resolve without
+// include_dirs: they are in commonGlobalIncludes, build/soong/cc/config/
+// global.go:553, applied to every cc module.
+
+cc_library_shared {
+    name: "libheif",
+
+    srcs: [
+        "HeifDecoderImpl.cpp",
+    ],
+
+    shared_libs: [
+        "libbinder",
+        "liblog",
+        "libutils",
+        "libmedia",
+    ],
+
+    cflags: [
+        "-Werror",
+        "-Wall",
+    ],
+
+    export_include_dirs: ["include"],
+}
