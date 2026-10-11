@@ -102,6 +102,11 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := SEC_BUILD_OPTION_VTS=true
 # CONFIG_COMPAT_VDSO=y needs a 32-bit prefix (arch/arm64/Makefile:53-66). 23.2 got it from vendor/lineage;
 # 24.0 dropped that, so pass it here. Restored by local_manifests/24/gcc-arm32.xml.
 TARGET_KERNEL_ADDITIONAL_FLAGS += CROSS_COMPILE_ARM32=$(BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androidkernel-
+# Host tools (scripts/sign-file, extract-cert) need a full OpenSSL with engine.h. 23.2 built them against the host's via the GCC-era
+# branch of vendor/lineage BoardConfigKernel.mk (lines 223-241); 24.0 removed that branch (21fb2c0c) and the bundled
+# prebuilts/kernel-build-tools openssl headers are partial. Same flags as 23.2; needs libssl-dev on the build host.
+# Last HOSTCFLAGS/HOSTLDFLAGS on the make command line wins, and kernel.mk appends this variable after BoardConfigKernel.mk.
+TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-I/usr/include -I/usr/include/x86_64-linux-gnu" HOSTLDFLAGS="-L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -fuse-ld=lld"
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/sdm670
 
