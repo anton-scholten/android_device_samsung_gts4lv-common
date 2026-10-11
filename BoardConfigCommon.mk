@@ -107,6 +107,15 @@ TARGET_KERNEL_ADDITIONAL_FLAGS += CROSS_COMPILE_ARM32=$(BUILD_TOP)/prebuilts/gcc
 # prebuilts/kernel-build-tools openssl headers are partial. Same flags as 23.2; needs libssl-dev on the build host.
 # Last HOSTCFLAGS/HOSTLDFLAGS on the make command line wins, and kernel.mk appends this variable after BoardConfigKernel.mk.
 TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-I/usr/include -I/usr/include/x86_64-linux-gnu" HOSTLDFLAGS="-L/usr/lib/x86_64-linux-gnu -L/usr/lib64 -fuse-ld=lld"
+# Android 17's clang (r596125, clang 22) enables -Wimplicit-enum-enum-cast by default; clang 21 (r563880c, what 23.2
+# used) did not. The kernel builds with -Wall (Makefile:413) and -Werror (Makefile:762), so the new default turns into a
+# fatal error on 2017-era qcacld-3.0 code that returns A_STATUS from QDF_STATUS functions, first hit at
+# qca-wifi-host-cmn/hif/src/ce/ce_main.c:2135. Confirmed by A/B: identical command line and md5-identical source compile
+# clean on r563880c and fail on r596125.
+# -Wno-error= (not -Wno-) so every other warning stays fatal. Safe as a command-line var: the kernel Makefile never
+# assigns KCFLAGS itself, only consumes it at Makefile:977 (KBUILD_CFLAGS += $(ARCH_CFLAGS) $(KCFLAGS)), and nothing else
+# in this tree sets it.
+TARGET_KERNEL_ADDITIONAL_FLAGS += KCFLAGS="-Wno-error=implicit-enum-enum-cast"
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/sdm670
 
