@@ -99,6 +99,9 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_ADDITIONAL_FLAGS := SEC_BUILD_OPTION_VTS=true
+# CONFIG_COMPAT_VDSO=y needs a 32-bit prefix (arch/arm64/Makefile:53-66). 23.2 got it from vendor/lineage;
+# 24.0 dropped that, so pass it here. Restored by local_manifests/24/gcc-arm32.xml.
+TARGET_KERNEL_ADDITIONAL_FLAGS += CROSS_COMPILE_ARM32=$(BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/bin/arm-linux-androidkernel-
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/sdm670
 
