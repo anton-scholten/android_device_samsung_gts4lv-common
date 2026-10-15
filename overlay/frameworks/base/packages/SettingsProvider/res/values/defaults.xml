@@ -7,4 +7,10 @@
 <resources>
     <!-- Tablet: auto-rotate on by default -->
     <bool name="def_accelerometer_rotation">true</bool>
+
+    <!-- Auto-brightness on by default (the light sensor is supported) -->
+    <bool name="def_screen_brightness_automatic_mode">true</bool>
+
+    <!-- Device name shown in Settings and to other devices -->
+    <string name="def_device_name_simple" translatable="false">Galaxy Tab S5e</string>
 </resources>
