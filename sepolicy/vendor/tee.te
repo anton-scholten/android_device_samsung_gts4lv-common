@@ -41,5 +41,11 @@ allow tee vaultkeeper_efs_file:file rw_file_perms;
 allow tee vendor_data_file:dir create_dir_perms;
 allow tee vendor_data_file:file create_file_perms;
 
+# The gatekeeper TA keeps its records in /data/vendor/gatekeeper. Android 16 allowed this in
+# system/sepolicy/private/tee.te; Android 17 moved the type to vendor policy without the tee rule,
+# so PIN/password verification failed after the first reboot (nwd_KM_OUTDATA_unpack err -506).
+allow tee gatekeeper_vendor_data_file:dir rw_dir_perms;
+allow tee gatekeeper_vendor_data_file:file create_file_perms;
+
 get_prop(tee, hwservicemanager_prop)
 set_prop(tee, vendor_qseecomd_prop)
