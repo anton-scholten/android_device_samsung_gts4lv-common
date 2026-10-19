@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Builds come from this project's GitHub releases, not download.lineageos.org -->
+    <string name="menu_changelog_url" translatable="false">https://github.com/anton-scholten/lineageos-galaxy-tab-s5e/releases</string>
+    <string name="report_issue_url" translatable="false">https://github.com/anton-scholten/lineageos-galaxy-tab-s5e/issues</string>
+    <string name="header_download_url" translatable="false">github.com/anton-scholten/lineageos-galaxy-tab-s5e</string>
+    <string name="blocked_update_info_url" translatable="false">https://github.com/anton-scholten/lineageos-galaxy-tab-s5e#install--upgrade</string>
+</resources>
