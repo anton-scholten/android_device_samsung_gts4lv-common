@@ -165,3 +165,8 @@ persist.sys.wfd.virtual=0
 
 # Zygote
 zygote.critical_window.minute=10
+
+# Storage: no sdcardfs. vold then sets the default ACLs on Android/data and Android/obb that other
+# services (DownloadManager, MediaProvider) need to write into app folders. Needs the kernel fuse-bpf
+# umask fix (7bf5ff571b75). Project ids and casefolding stay off (no ext4 casefold in this kernel).
+external_storage.sdcardfs.enabled=0
