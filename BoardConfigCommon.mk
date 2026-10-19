@@ -137,7 +137,7 @@ BOARD_USES_METADATA_PARTITION := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
+$(call soong_config_set,qtipower,mode_ext_lib,//device/samsung/gts4lv-common:libpowermodeext_gts4lv)
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
