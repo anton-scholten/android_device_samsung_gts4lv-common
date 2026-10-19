@@ -7,5 +7,6 @@ fs_mgr.overlayfs.prefer_cache_backing_storage=true
 # Netflix
 ro.netflix.bsp_rev=Q670-14477-1
 
-# OTA: LineageOS Updater feed for this version (written by scripts/ota-json.sh in the docs repo)
-lineage.updater.uri=https://raw.githubusercontent.com/anton-scholten/lineageos-galaxy-tab-s5e/main/ota/24.0/{device}.json
+# OTA: LineageOS Updater feed for this version, on GitHub Pages (scripts/ota-json.sh in the docs repo).
+# Non-ro properties are limited to 91 bytes.
+lineage.updater.uri=https://anton-scholten.github.io/lineageos-galaxy-tab-s5e/ota/24.0/{device}.json
