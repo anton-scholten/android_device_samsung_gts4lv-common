@@ -12,3 +12,11 @@ install_symlink {
     installed_location: "firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini",
     symlink_target: "/vendor/etc/wifi/WCNSS_qcom_cfg.ini",
 }
+
+cc_library_static {
+    name: "libpowermodeext_gts4lv",
+    vendor: true,
+    srcs: ["power/power-mode.cpp"],
+    defaults: ["android.hardware.power-ndk_shared"],
+    shared_libs: ["libbase"],
+}
