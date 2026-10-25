@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- The keyguard status bar is only 28dp tall here (status bar height plus the rounded
+         corner inset), so the tablet default of 30dp clips the user avatar at the top and
+         bottom and makes it touch the screen edge. -->
+    <dimen name="multi_user_avatar_keyguard_size">24dp</dimen>
+</resources>
