@@ -1,0 +1,12 @@
+//
+// Copyright (C) 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+aconfig_values {
+    name: "aconfig-values-gts4lv-common-cp2a-com.android.wm.shell-all",
+    package: "com.android.wm.shell",
+    srcs: [
+        "*_flag_values.textproto",
+    ],
+}

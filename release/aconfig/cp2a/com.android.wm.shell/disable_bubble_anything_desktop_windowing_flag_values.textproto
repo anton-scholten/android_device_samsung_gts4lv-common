@@ -1,0 +1,8 @@
+# Android 17 hides app bubbles ("Bubble Anything") on displays that support desktop windowing, and LineageOS
+# enables desktop windowing on large screens. Keep both: allow app bubbles here.
+flag_value {
+  package: "com.android.wm.shell"
+  name: "disable_bubble_anything_desktop_windowing"
+  state: DISABLED
+  permission: READ_ONLY
+}

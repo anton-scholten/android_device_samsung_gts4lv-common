@@ -1,0 +1,10 @@
+# Build flag overrides for gts4lv-common, merged into the "cp2a" release config.
+default_containers: "product"
+default_containers: "system"
+default_containers: "system_ext"
+default_containers: "vendor"
+
+release_config {
+    name: "cp2a"
+    flag_value_files: "release_configs/cp2a.textproto"
+}
