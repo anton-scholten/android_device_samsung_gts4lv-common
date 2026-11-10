@@ -6,3 +6,6 @@ allowxperm rild tun_device:chr_file ioctl { TUNSETIFF TUNSETPERSIST };
 allow rild proc_net:file write;
 
 get_prop(rild, csc_prop)
+
+allow rild vendor_secradio_data_file:dir create_dir_perms;
+allow rild vendor_secradio_data_file:file create_file_perms;

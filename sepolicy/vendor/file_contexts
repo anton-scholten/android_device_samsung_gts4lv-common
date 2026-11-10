@@ -22,9 +22,8 @@
 /data/vendor/biometrics(/.*)?        u:object_r:biometrics_vendor_data_file:s0
 /data/vendor/conn(/.*)?              u:object_r:vendor_convergence_data_file:s0
 /data/vendor/gps(/.*)?               u:object_r:vendor_gps_file:s0
-/data/vendor/log(/.*)?               u:object_r:vendor_log_file:s0
 /data/vendor/log/audiopcm(/.*)?      u:object_r:vendor_audiopcm_data_file:s0
-/data/vendor/secradio(/.*)?          u:object_r:vendor_radio_data_file:s0
+/data/vendor/secradio(/.*)?          u:object_r:vendor_secradio_data_file:s0
 
 # Devices
 /dev/android_rndis_qc          u:object_r:radio_device:s0
@@ -166,6 +165,7 @@
 /mnt/vendor/efs/wv\.keys                       u:object_r:sec_efs_file:s0
 
 # HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.bluetooth@1\.0-service-qti          u:object_r:hal_bluetooth_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.samsung    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider-service_32\.samsung        u:object_r:hal_camera_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health-service\.samsung                     u:object_r:hal_health_default_exec:s0
@@ -176,9 +176,9 @@
 
 # Sys
 /sys/class/camera(/.*)?                                     --  u:object_r:sysfs_camera_writable:s0
-/sys/class/cirrus/cirrus_bd(/.*)?                               u:object_r:sysfs_audio:s0
-/sys/class/cirrus/cirrus_cal(/.*)?                              u:object_r:sysfs_audio:s0
-/sys/class/cirrus/cirrus_pwr(/.*)?                              u:object_r:sysfs_audio:s0
+/sys/class/cirrus/cirrus_bd(/.*)?                               u:object_r:vendor_sysfs_audio:s0
+/sys/class/cirrus/cirrus_cal(/.*)?                              u:object_r:vendor_sysfs_audio:s0
+/sys/class/cirrus/cirrus_pwr(/.*)?                              u:object_r:vendor_sysfs_audio:s0
 /sys/class/lcd(/.*)?                                        --  u:object_r:sysfs_lcd_writable:s0
 /sys/class/power_supply(/.*)?                               --  u:object_r:sysfs_batteryinfo:s0
 /sys/class/power_supply/battery(/.*)?                       --  u:object_r:sysfs_batteryinfo:s0
