@@ -464,7 +464,6 @@ vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmiservices.so
-vendor/lib/libqrtr.so
 vendor/lib/libqsocket.so
 vendor/lib64/libdiag.so
 vendor/lib64/libdiagjni.so
@@ -481,8 +480,13 @@ vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
-vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
+
+# QRTR - from FP4 - FP4.SREL.15.19.2.20260706144009
+vendor/bin/qrtr-cfg|20f88dc4a2eed437a916cde3d70ccd24a326031f
+vendor/bin/qrtr-lookup|efa9467fadaa99d1993e6531a277730600631582
+vendor/bin/qrtr-ns|dd6da24e4127a0edecd0f3ab8c69e57617664da4
+vendor/lib64/libqrtr.so|61efce3800472e7aaa6671dca003bed63f2fb9ca
 
 # QSPM - from FP4 - FP4.SREL.15.19.2.20260706144009
 vendor/bin/vendor.qti.qspmhal@1.0-service|ac1c898683786dba373e76d63e31b62e138c1695
