@@ -38,7 +38,6 @@
 /dev/network_throughput        u:object_r:radio_device:s0
 /dev/nmea                      u:object_r:radio_device:s0
 /dev/qmi[0-9]*                 u:object_r:radio_device:s0
-/dev/tzic                      u:object_r:tz_device:s0
 
 # EFS files
 /efs/\.drm(/.*)?                               u:object_r:drm_efs_file:s0
@@ -175,7 +174,6 @@
 /(vendor|system/vendor)/bin/hw/vendor\.samsung\.hardware\.thermal@1\.0-service                u:object_r:hal_thermal_default_exec:s0
 
 # Sys
-/sys/class/camera(/.*)?                                     --  u:object_r:sysfs_camera_writable:s0
 /sys/class/cirrus/cirrus_bd(/.*)?                               u:object_r:vendor_sysfs_audio:s0
 /sys/class/cirrus/cirrus_cal(/.*)?                              u:object_r:vendor_sysfs_audio:s0
 /sys/class/cirrus/cirrus_pwr(/.*)?                              u:object_r:vendor_sysfs_audio:s0
@@ -184,8 +182,6 @@
 /sys/class/power_supply/battery(/.*)?                       --  u:object_r:sysfs_batteryinfo:s0
 /sys/class/rfkill/rfkill[0-9]+/state                        --  u:object_r:sysfs_bluetooth_writable:s0
 /sys/class/rfkill/rfkill[0-9]+/type                         --  u:object_r:sysfs_bluetooth_writable:s0
-/sys/devices/platform/soc/soc:battery/power_supply(/.*)?    --  u:object_r:sysfs_batteryinfo:s0
-/sys/devices/virtual/audio/earjack/state                        u:object_r:sysfs_audio_writable:s0
 /sys/devices/virtual/fingerprint/fingerprint(/.*)?              u:object_r:sysfs_fpc:s0
 /sys/devices/virtual/lcd/panel(/.*)?                            u:object_r:sysfs_lcd_writable:s0
 /sys/devices/virtual/mdnie(/.*)?                            --  u:object_r:sysfs_mdnie_writable:s0

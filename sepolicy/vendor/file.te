@@ -37,14 +37,11 @@ type wifi_efs_file, file_type, mlstrustedobject;
 
 # proc
 type proc_default_smp_affinity, fs_type, proc_type;
-type proc_last_kmsg, fs_type, proc_type;
-type proc_reset_reason, fs_type, proc_type;
 type proc_simslot_count, fs_type, proc_type;
 type proc_swappiness, fs_type, proc_type;
 
 # sysfs
 type sysfs_audio_writable, fs_type, sysfs_type;
-type sysfs_camera_writable, fs_type, sysfs_type;
 type sysfs_fpc, fs_type, sysfs_type;
 type sysfs_lcd_writable, fs_type, sysfs_type;
 type sysfs_mdnie_writable, fs_type, sysfs_type;

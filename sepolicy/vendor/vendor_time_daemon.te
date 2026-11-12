@@ -1,1 +1,2 @@
+r_dir_file(vendor_time_daemon, tee)
 r_dir_file(vendor_time_daemon, vendor_timeservice_app)
