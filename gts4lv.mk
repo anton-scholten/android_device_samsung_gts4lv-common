@@ -53,12 +53,13 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl.gts4lv:32 \
+    android.hardware.audio@6.0-impl:32 \
     android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.2-impl:32 \
     audio.bluetooth.default \
+    audio.primary.qcom \
     audio.r_submix.default \
     audio.usb.default \
     cplay \
