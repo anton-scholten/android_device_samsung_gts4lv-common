@@ -47,6 +47,14 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
+    'vendor/etc/perf/targetresourceconfigs.xml': blob_fixup()
+        .regex_replace('soc:qcom,memlat-cpu6/', 'soc:qcom,cpu6-cpu-llcc-lat/')
+        .regex_replace('( *)(<Config MajorValue="0xD" MinorValue="0x2")',
+            r'\1<Config MajorValue="0xD" MinorValue="0x0" Node="/sys/class/devfreq/17d41000.qcom,devfreq-l3:qcom,cpu%d-cpu-l3-lat/min_freq"/>\n'
+            r'\1<Config MajorValue="0xD" MinorValue="0x1" Node="/sys/class/devfreq/soc:qcom,cpu0-cpu-llcc-lat/mem_latency/ratio_ceil"/>\n'
+            r'\1<Config MajorValue="0xD" MinorValue="0x3" Node="/sys/class/devfreq/soc:qcom,cpu0-cpu-llcc-lat/mem_latency/stall_floor"/>\n'
+            r'\1<Config MajorValue="0xD" MinorValue="0x5" Node="/sys/class/devfreq/soc:qcom,cpu0-cpu-llcc-lat/min_freq"/>\n'
+            r'\1\2'),
     'vendor/etc/wfdconfig.xml': blob_fixup()
         .regex_replace('<AudioStreamInSuspend>0</AudioStreamInSuspend>', '<AudioStreamInSuspend>1</AudioStreamInSuspend>'),
     ('vendor/lib/mediadrm/libwvdrmengine.so', 'vendor/lib/libwvhidl.so'): blob_fixup()
