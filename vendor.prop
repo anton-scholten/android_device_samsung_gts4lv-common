@@ -125,12 +125,17 @@ persist.backup.ntpServer=0.pool.ntp.org
 
 # Graphics
 debug.sf.auto_latch_unsignaled=0
+debug.sf.early_app_phase_offset_ns=100000
+debug.sf.early_gl_app_phase_offset_ns=100000
+debug.sf.early_gl_phase_offset_ns=100000
+debug.sf.early_phase_offset_ns=100000
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_transaction_tracing=false
-debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
-debug.sf.high_fps_early_phase_offset_ns=-4000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
+debug.sf.high_fps_early_gl_phase_offset_ns=100000
+debug.sf.high_fps_early_phase_offset_ns=100000
+debug.sf.high_fps_late_app_phase_offset_ns=100000
+debug.sf.high_fps_late_sf_phase_offset_ns=100000
 debug.sf.predict_hwc_composition_strategy=0
 persist.sys.sf.color_saturation=1.0
 ro.hardware.egl=adreno
