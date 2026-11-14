@@ -1,0 +1,6 @@
+flag_value {
+  package: "com.android.wm.shell"
+  name: "disable_bubble_anything_desktop_windowing"
+  state: DISABLED
+  permission: READ_ONLY
+}
