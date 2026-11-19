@@ -7,6 +7,8 @@ android_app {
     name: "VolumeTile",
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
-    sdk_version: "current",
+    platform_apis: true,
+    privileged: true,
+    privapp_allowlist: "privapp-permissions-volumetile.xml",
     product_specific: true,
 }

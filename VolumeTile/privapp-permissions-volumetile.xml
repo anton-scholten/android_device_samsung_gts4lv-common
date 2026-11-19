@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<permissions>
+    <privapp-permissions package="org.gts4lv.volumetile">
+        <permission name="android.permission.MODIFY_AUDIO_SETTINGS_PRIVILEGED" />
+        <permission name="android.permission.STATUS_BAR" />
+    </privapp-permissions>
+</permissions>
