@@ -758,4 +758,8 @@
     <!-- Should the pinner service pin the Home application? -->
     <bool name="config_pinnerHomeApp">true</bool>
 
+    <!-- Full-size 2560x1600 task snapshots are 16 MB each; halve them for Overview -->
+    <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.5</item>
+    <item name="config_lowResTaskSnapshotScale" format="float" type="dimen">0.25</item>
+
 </resources>
