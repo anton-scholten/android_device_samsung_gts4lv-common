@@ -14,6 +14,7 @@ cc_library_shared {
         "libhardware",
         "liblog",
         "libtinyalsa",
+        "//vendor/samsung/gts4lv-common:lib_SoundBooster_ver_Quad_1000",
     ],
     header_libs: [
         "libhardware_headers",
