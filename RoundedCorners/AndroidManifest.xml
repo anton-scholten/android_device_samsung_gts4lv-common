@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.gts4lv.corners">
+
+    <uses-permission android:name="android.permission.CHANGE_OVERLAY_PACKAGES" />
+
+    <application
+        android:label="@string/app_name"
+        android:persistent="false">
+
+        <!-- Settings > Display > Other display controls -->
+        <provider
+            android:name=".CornersSwitchProvider"
+            android:authorities="org.gts4lv.corners.switches"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+        </provider>
+    </application>
+</manifest>

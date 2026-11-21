@@ -277,8 +277,9 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti
 
-# Volume tile
+# Device apps: rounded corners switch, volume tile
 PRODUCT_PACKAGES += \
+    RoundedCorners \
     VolumeTile
 
 # WiFi

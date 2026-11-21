@@ -1,0 +1,23 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "RoundedCorners",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    static_libs: ["SettingsLibTile"],
+    platform_apis: true,
+    privileged: true,
+    privapp_allowlist: "privapp-permissions-corners.xml",
+    product_specific: true,
+    required: ["SquareCornersOverlay"],
+}
+
+runtime_resource_overlay {
+    name: "SquareCornersOverlay",
+    manifest: "overlay/AndroidManifest.xml",
+    resource_dirs: ["overlay/res"],
+    product_specific: true,
+}
