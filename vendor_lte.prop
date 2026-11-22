@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+
+# LTE (gts4lv) only: don't skip frames while HWC is behind on GPU-composited
+# frames; fixes recents/desktop mode lag reported on the SM-T725
+debug.sf.enable_gl_backpressure=0
