@@ -15,3 +15,6 @@ allow hal_audio_default vendor_log_file:dir r_dir_perms;
 allow hal_audio_default efs_file:dir search;
 
 get_prop(hal_audio_default, csc_prop)
+
+# DSP Group sound trigger HAL: receive the dbmdx VOICE_WAKEUP uevents ("Hey Google")
+allow hal_audio_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
