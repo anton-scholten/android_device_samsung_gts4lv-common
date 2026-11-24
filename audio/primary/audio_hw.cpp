@@ -302,8 +302,14 @@ ssize_t outWrite(audio_stream_out* stream, const void* buffer, size_t bytes) {
 
     const size_t frames = bytes / (sampleSize * 2);
 
-    std::lock_guard<std::mutex> lock(gStreamsLock);
-    auto& ctx = gStreams[stream];
+    // Only the lookup needs the lock: holding it over the blocking write below
+    // starves other outputs (low latency underruns while deep buffer writes).
+    StreamContext* ctxPtr;
+    {
+        std::lock_guard<std::mutex> lock(gStreamsLock);
+        ctxPtr = &gStreams[stream];
+    }
+    auto& ctx = *ctxPtr;
     ctx.buffer.resize(frames * sampleSize * 4);
 
     // Deep buffer runs in 8.24 like on stock, so the HAL writes it to the S24 TDM PCM as is.
